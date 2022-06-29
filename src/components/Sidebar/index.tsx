@@ -1,10 +1,8 @@
-import { useContext } from "react";
-
 import { Container, Footer, ImgWeather, InputSearch, WeatherInfo } from "./style";
 
-import { CircleNotch, Crosshair, MapPin } from 'phosphor-react';
+import {  Crosshair, MapPin } from 'phosphor-react';
 import moment from 'moment';
-import { useWeather, WeatherContext } from "../../hooks/useWeather";
+import { useWeather } from "../../hooks/useWeather";
 import { WeatherImageTransiction } from "../WeatherImgTransition";
 
 

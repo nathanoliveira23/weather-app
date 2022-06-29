@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { WeatherContext, WeatherContextProvider } from "../../hooks/useWeather";
-import api from "../../services/api";
+import { WeatherContextProvider } from "../../hooks/useWeather";
 import { CurrentWeatherInfo } from "../CurrentWeatherInfo";
 import { Sidebar } from "../Sidebar";
 import { Container } from "./style";
