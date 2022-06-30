@@ -31,6 +31,7 @@ interface GetWeather {
 
 interface WeatherContextData {
     weathers: GetWeather;
+    city: string
     handleSearchCity: (e: any) => void;
 }
 
@@ -59,7 +60,7 @@ export function WeatherContextProvider({ children }: GetWeatherProps) {
       }
 
     return(
-        <WeatherContext.Provider value={{ weathers, handleSearchCity }}>
+        <WeatherContext.Provider value={{ weathers, city, handleSearchCity }}>
             {children}
         </WeatherContext.Provider>
     )

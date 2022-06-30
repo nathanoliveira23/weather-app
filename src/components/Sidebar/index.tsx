@@ -4,6 +4,7 @@ import {  Crosshair, MapPin } from 'phosphor-react';
 import moment from 'moment';
 import { useWeather } from "../../hooks/useWeather";
 import { WeatherImageTransiction } from "../WeatherImgTransition";
+import { FormEvent } from "react";
 
 
 type Desc = {
@@ -17,11 +18,12 @@ export function Sidebar(){
     return(
         <Container key={weathers.id}>
             <InputSearch>
-                <input 
-                    placeholder="Serch for places"
-                    type="text"
-                    onChange={handleSearchCity} />
-                <Crosshair size={32} className="crosshair" />
+                    <input
+                        placeholder="Serch for places"
+                        type="text"
+                        onChange={handleSearchCity} />
+
+                    <Crosshair size={32} className="crosshair" />
             </InputSearch>
             <ImgWeather>
                 <WeatherImageTransiction />
