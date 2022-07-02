@@ -1,7 +1,7 @@
 import { Children, createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import api from '../services/api';
 
-interface GetWeather {
+export interface GetWeather {
     id: number;
     name: string;
     visibility: number;
@@ -31,8 +31,9 @@ interface GetWeather {
 
 interface WeatherContextData {
     weathers: GetWeather;
-    city: string
-    handleSearchCity: (e: any) => void;
+    temperature: number;
+    setTemperature: (newState: number) => void
+    handleSearchCity: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface GetWeatherProps {
@@ -43,24 +44,28 @@ export const WeatherContext = createContext<WeatherContextData>({} as WeatherCon
 
 export function WeatherContextProvider({ children }: GetWeatherProps) {
     const [weathers, setWeathers] = useState<GetWeather>({} as GetWeather);
+    const [temperature, setTemperature] = useState(0);
     const [city, setCity] = useState("Parnamirim");
 
     const getWeatherInfo = async () => {
         const response = await api.get(`weather?q=${city},br&APPID=fd5c802b33c3dc3748049715cc0c6e5f&lang=pt&units=metric`)
         console.log(response.data);
         setWeathers(response.data);
+        const { temp } = response.data.main
+        setTemperature(temp);
+        console.log(temp);
       }
     
       useEffect(() => {
         getWeatherInfo();
       }, [city]);
 
-      function handleSearchCity(e: any){
-        setCity(e.target.value)
+      function handleSearchCity(event: React.ChangeEvent<HTMLInputElement>){
+        setCity(event.target.value);
       }
 
     return(
-        <WeatherContext.Provider value={{ weathers, city, handleSearchCity }}>
+        <WeatherContext.Provider value={{ weathers, temperature, setTemperature, handleSearchCity }}>
             {children}
         </WeatherContext.Provider>
     )

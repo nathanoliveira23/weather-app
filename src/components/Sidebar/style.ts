@@ -37,6 +37,27 @@ export const InputSearch = styled.div`
         color: var(--text-primary-color);
     }
 
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 120px;
+
+        button {
+            background-color: transparent;
+            border: 2px solid #6e707a;
+            border-radius: 50%;
+            padding: 5px;
+            padding-right: 10px;
+            cursor: pointer;
+
+            &:disabled {
+                background-color: var(--text-secundary-color);
+                cursor: not-allowed;
+            }
+        }
+    }
+
     .crosshair {
         color: #E7E7EB;
         background-color: #6e707a;

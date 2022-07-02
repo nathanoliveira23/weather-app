@@ -1,10 +1,13 @@
 import { Container, Footer, ImgWeather, InputSearch, WeatherInfo } from "./style";
 
-import {  Crosshair, MapPin } from 'phosphor-react';
+import fahrenheit from '../../../assets/fahrenheit.svg';
+import celsius from '../../../assets/celsius.svg';
+
+import { MapPin } from 'phosphor-react';
 import moment from 'moment';
 import { useWeather } from "../../hooks/useWeather";
 import { WeatherImageTransiction } from "../WeatherImgTransition";
-import { FormEvent } from "react";
+import { useState } from "react";
 
 
 type Desc = {
@@ -13,7 +16,26 @@ type Desc = {
 }
 
 export function Sidebar(){
-    const { weathers, handleSearchCity } = useWeather();
+    const { weathers, temperature, setTemperature, handleSearchCity } = useWeather();
+    const [isConverted, setIsconverted] = useState(false)
+
+    function handleConvertToFahrenheit() {
+        let currentTempValue = temperature;
+
+        let ToFahrenheit = Math.round((currentTempValue * 1.8) + 32);
+
+        setIsconverted(true);
+        setTemperature(ToFahrenheit);
+    }
+
+    function handleConvertToCelsius() {
+        let currentTempValue = temperature;
+
+        let ToCelsios = Math.round((currentTempValue - 32)/1.8);
+    
+        setIsconverted(false);
+        setTemperature(ToCelsios);
+    }
 
     return(
         <Container key={weathers.id}>
@@ -23,18 +45,32 @@ export function Sidebar(){
                         type="text"
                         onChange={handleSearchCity} />
 
-                    <Crosshair size={32} className="crosshair" />
+                    <div>
+                        <button 
+                            onClick={handleConvertToCelsius}
+                            disabled={!isConverted}>
+                            <img src={celsius} />
+                        </button>
+                        <button 
+                            onClick={handleConvertToFahrenheit}
+                            disabled={isConverted}>
+                            <img src={fahrenheit} />
+                        </button>
+                    </div>
             </InputSearch>
             <ImgWeather>
                 <WeatherImageTransiction />
             </ImgWeather>
                     
             <WeatherInfo>
-                <h2> {weathers.main?.temp} <span>°C</span></h2>
+                <h2>
+                    {Math.round(temperature)}
+                    {isConverted ? <span> °F</span> : <span> °C</span>}
+                </h2>
                     {weathers.weather?.map((info: Desc) => {
                         return(
                             <p key={info.id}>{info.description}</p>
-                            )
+                        )
                     })}
             </WeatherInfo>             
             <Footer>
