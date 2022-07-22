@@ -27,6 +27,7 @@ export const WeatherInfo = styled.div`
     gap: 1.5rem;
 
     margin-top: 3rem;
+    
 
     div{
         display: flex;
@@ -47,8 +48,6 @@ export const WeatherInfo = styled.div`
             line-height: 18.78px;
             color: var(--text-primary-color);
         }
-
-        
 
         :nth-child(1), :nth-child(2){
             strong{

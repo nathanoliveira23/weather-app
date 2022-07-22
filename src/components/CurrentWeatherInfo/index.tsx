@@ -1,4 +1,5 @@
 import { useWeather } from "../../hooks/useWeather";
+import { HumidityBar } from "../HumidityBar";
 
 import { Container, Title, WeatherInfo } from "./style";
 
@@ -31,7 +32,9 @@ export function CurrentWeatherInfo(){
                         </strong>
                         %
                     </span>
-                    <span>Humidity Bar</span>
+                    <span>
+                        <HumidityBar />
+                    </span>
                 </div>
             </WeatherInfo>
             <WeatherInfo>
@@ -52,6 +55,7 @@ export function CurrentWeatherInfo(){
                     </span>
                 </div>
             </WeatherInfo>
+            
         </Container>
     );
 }
