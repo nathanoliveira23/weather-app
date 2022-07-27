@@ -47,6 +47,11 @@ export const WeatherInfo = styled.div`
             font-weight: 500;
             line-height: 18.78px;
             color: var(--text-primary-color);
+
+            &:nth-child(2) {
+                font-size: 2.4rem;
+                margin-left: 1rem;
+            }
         }
 
         :nth-child(1), :nth-child(2){

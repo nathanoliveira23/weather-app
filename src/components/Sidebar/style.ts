@@ -16,28 +16,41 @@ export const InputSearch = styled.div`
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 3rem 0;
+    justify-content: space-between;
+    
+    margin-block: 3rem;
 
     input{ 
-        width: 16.1rem;
+        width: 20rem;
         height: 4rem;
+
         background-color: #6e707a;
+
+        position: relative;
 
         font-size: 1.8rem;
         color: var(--text-primary-color);
 
-        padding-left: 1rem;
+        padding-left: 4rem;
+        margin-left: 1rem;
+
         border: none;
-
         border-radius: 1rem;
+
+        outline: none;
+
+        &::placeholder {
+            color: var(--text-primary-color);
+        }
     }
 
-    input::placeholder {
-        color: var(--text-primary-color);
-    }
 
-    div {
+    svg {
+        position: absolute;
+        left: 1.5rem;
+    }
+    
+     div {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -56,14 +69,7 @@ export const InputSearch = styled.div`
                 cursor: not-allowed;
             }
         }
-    }
-
-    .crosshair {
-        color: #E7E7EB;
-        background-color: #6e707a;
-        padding: 0.2rem;
-        border-radius: 50%;
-    }
+    } 
 `
 
 export const ImgWeather = styled.div`
