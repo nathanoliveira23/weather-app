@@ -9,9 +9,7 @@ export function CurrentWeatherInfo(){
       
     return(
         <Container>
-            <Title>
-                Today's Hightlights
-            </Title>
+            <Title>Today's Highlights</Title>
             <WeatherInfo>
                 <div>
                     <span>Wind status</span>
