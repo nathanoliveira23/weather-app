@@ -1,4 +1,4 @@
-import { Children, createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import api from '../services/api';
 
 export interface GetWeather {
@@ -49,11 +49,10 @@ export function WeatherContextProvider({ children }: GetWeatherProps) {
 
     const getWeatherInfo = async () => {
         const response = await api.get(`weather?q=${city},br&APPID=fd5c802b33c3dc3748049715cc0c6e5f&lang=pt&units=metric`)
-        console.log(response.data);
         setWeathers(response.data);
+
         const { temp } = response.data.main
         setTemperature(temp);
-        console.log(temp);
       }
     
       useEffect(() => {

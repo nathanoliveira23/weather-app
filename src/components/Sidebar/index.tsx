@@ -40,24 +40,26 @@ export function Sidebar(){
     return(
         <Container key={weathers.id}>
             <InputSearch>
-                        <input
-                            placeholder="Serch for places"
-                            type="text"
-                            onChange={handleSearchCity}
-                        />
-                            <MagnifyingGlass size={24} color="white" />
-                    <div>
-                        <button 
-                            onClick={handleConvertToCelsius}
-                            disabled={!isConverted}>
-                            <img src={celsius} />
-                        </button>
-                        <button 
-                            onClick={handleConvertToFahrenheit}
-                            disabled={isConverted}>
-                            <img src={fahrenheit} />
-                        </button>
-                    </div>
+                <input
+                    placeholder="Serch for places"
+                    type="text"
+                    onChange={handleSearchCity}
+                />
+                    <MagnifyingGlass size={24} color="white" />
+                <div>
+                    <button 
+                        onClick={handleConvertToCelsius}
+                        disabled={!isConverted}
+                    >
+                        <img src={celsius} />
+                    </button>
+                    <button 
+                        onClick={handleConvertToFahrenheit}
+                        disabled={isConverted}
+                    >
+                        <img src={fahrenheit} />
+                    </button>
+                </div>
             </InputSearch>
             <ImgWeather>
                 <WeatherImageTransiction />

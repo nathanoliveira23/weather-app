@@ -31,7 +31,6 @@ export function WeatherImageTransiction(){
                             : <img key={weathers.id} src={Night} />
 
                             return updateClearSky;
-                            break;
 
                         case 'céu pouco nublado':
                             const updateLittleCloudyHour = hour > '05' && hour < '18' 
@@ -39,7 +38,6 @@ export function WeatherImageTransiction(){
                             : <img key={weathers.id} src={LittleCloudyNight} />
 
                             return updateLittleCloudyHour;
-                            break;
 
                         case 'nublado':
                             const updateCloudyHour = hour > '05' && hour < '18' 
@@ -47,27 +45,17 @@ export function WeatherImageTransiction(){
                             : <img key={weathers.id} src={CloudyNight} />
 
                             return updateCloudyHour;
-                            break;
 
                         case 'nuvens dispersas':
-                            return <img key={weathers.id} src={Cloudy} />
-                            break;
-
                         case 'nuvens quebradas':
                             return <img key={weathers.id} src={Cloudy} />
-                            break;
 
                         case 'chuva fraca':
                             return <img key={weathers.id} src={Rain} />
-                            break;
                         
                         case 'chuva moderada':
-                            return <img key={weathers.id} src={ModerateRain} />
-                            break;
-                        
                         case 'nevoeiro':
                             return <img key={weathers.id} src={ModerateRain} />
-                            break;
 
                         default: <img key={weathers.id} src={Thunder} />
                     }
